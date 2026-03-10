@@ -51,18 +51,18 @@
         {{-- Products Grid --}}
         @php
             $products = [
-                ['img' => 'https://images.unsplash.com/photo-1594938298603-c8148c4b4057?w=600', 'name' => 'Classic Blazer', 'price' => '$289.000', 'badge' => 'Old Money'],
-                ['img' => 'https://images.unsplash.com/photo-1512327428394-b99f62e16f1f?w=600', 'name' => 'Urban Hoodie', 'price' => '$179.000', 'badge' => 'Streetwear'],
-                ['img' => 'https://images.unsplash.com/photo-1516257984-b1b4d707412e?w=600', 'name' => 'Silk Shirt', 'price' => '$219.000', 'badge' => 'Old Money'],
-                ['img' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600', 'name' => 'Drop Sneakers', 'price' => '$349.000', 'badge' => 'Limitado'],
-                ['img' => 'https://images.unsplash.com/photo-1551232864-3f0890e580d9?w=600', 'name' => 'Oxford Coat', 'price' => '$459.000', 'badge' => 'Old Money'],
-                ['img' => 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=600', 'name' => 'Street Cap', 'price' => '$89.000', 'badge' => 'Streetwear'],
-                ['img' => 'https://images.unsplash.com/photo-1617127365659-c47fa864d8bc?w=600', 'name' => 'Linen Trousers', 'price' => '$199.000', 'badge' => 'Old Money'],
-                ['img' => 'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600', 'name' => 'Cargo Pants', 'price' => '$239.000', 'badge' => 'Streetwear'],
-                ['img' => 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600', 'name' => 'Cashmere Polo', 'price' => '$329.000', 'badge' => 'Nuevo'],
-                ['img' => 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600', 'name' => 'Bomber Jacket', 'price' => '$389.000', 'badge' => 'Streetwear'],
-                ['img' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600', 'name' => 'Chino Classic', 'price' => '$189.000', 'badge' => 'Old Money'],
-                ['img' => 'https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600', 'name' => 'Oversized Tee', 'price' => '$129.000', 'badge' => 'Streetwear'],
+                ['img' => 'https://i.pinimg.com/1200x/ab/93/c9/ab93c9467a43c074d8485984954007cd.jpg', 'name' => 'Classic Blazer', 'price' => '$289.000', 'badge' => 'Old Money'],
+                ['img' => 'https://i.pinimg.com/736x/71/f5/fb/71f5fb2e33d993255f300eddee64d4c6.jpg', 'name' => 'Urban Hoodie', 'price' => '$179.000', 'badge' => 'Streetwear'],
+                ['img' => 'https://i.pinimg.com/736x/c1/ab/8f/c1ab8f4c6d72911661d420fb8ddca753.jpg', 'name' => 'Silk Shirt', 'price' => '$219.000', 'badge' => 'Old Money'],
+                ['img' => 'https://i.pinimg.com/736x/6a/23/98/6a2398df9a2c96baff240ee079d14f83.jpg', 'name' => 'Drop Sneakers', 'price' => '$349.000', 'badge' => 'Limitado'],
+                ['img' => 'https://i.pinimg.com/1200x/b5/31/91/b531916ff9dbbaac4bcfc3caa92126b6.jpg', 'name' => 'Oxford Coat', 'price' => '$459.000', 'badge' => 'Old Money'],
+                ['img' => 'https://i.pinimg.com/736x/da/88/d0/da88d0f8a194e38e289400f58e0cea53.jpg', 'name' => 'Street Cap', 'price' => '$89.000', 'badge' => 'Streetwear'],
+                ['img' => 'https://i.pinimg.com/1200x/b0/b3/67/b0b36797bc476c1cb410c923f87d5f5a.jpg', 'name' => 'Linen Trousers', 'price' => '$199.000', 'badge' => 'Old Money'],
+                ['img' => 'https://i.pinimg.com/1200x/ac/85/14/ac8514c5711a34ada8b914feb36bef61.jpg', 'name' => 'Cargo Pants', 'price' => '$239.000', 'badge' => 'Streetwear'],
+                ['img' => 'https://i.pinimg.com/736x/8f/42/db/8f42dbcf88302460af866d4187e36089.jpg', 'name' => 'Cashmere Polo', 'price' => '$329.000', 'badge' => 'Nuevo'],
+                ['img' => 'https://i.pinimg.com/736x/64/06/a3/6406a33fcec296e7cdcdd9fa5cadd4da.jpg', 'name' => 'Bomber Jacket', 'price' => '$389.000', 'badge' => 'Streetwear'],
+                ['img' => 'https://i.pinimg.com/736x/e3/a5/6f/e3a56f3b2554db23e885fd3aa7718719.jpg', 'name' => 'Chino Classic', 'price' => '$189.000', 'badge' => 'Old Money'],
+                ['img' => 'https://i.pinimg.com/736x/63/70/ed/6370ede8e3cf389bece3ef5eea1d3ff7.jpg', 'name' => 'Oversized Tee', 'price' => '$129.000', 'badge' => 'Streetwear'],
             ];
         @endphp
 
