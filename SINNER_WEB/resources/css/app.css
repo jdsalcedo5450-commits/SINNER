@@ -1,11 +1,1034 @@
-@import 'tailwindcss';
+/* ===== SINNER - Custom CSS ===== */
 
-@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
-@source '../../storage/framework/views/*.php';
-@source '../**/*.blade.php';
-@source '../**/*.js';
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cinzel:wght@400;500;600;700&family=Raleway:wght@300;400;500;600&display=swap');
 
-@theme {
-    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
-        'Segoe UI Symbol', 'Noto Color Emoji';
+/* ===== CSS Variables ===== */
+:root {
+    --gold: #C9A84C;
+    --gold-light: #E8C870;
+    --gold-dark: #8B6914;
+    --deep-black: #0A0A0A;
+    --pure-black: #000000;
+    --off-white: #F5F0E8;
+    --pure-white: #FFFFFF;
+    --red-sinner: #C41E3A;
+    --red-dark: #8B0000;
+    --gray-dark: #1a1a1a;
+    --gray-mid: #2d2d2d;
+}
+
+/* ===== Base Styles ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    background-color: var(--deep-black);
+    color: var(--off-white);
+    overflow-x: hidden;
+}
+
+/* ===== Typography ===== */
+.font-cinzel { font-family: 'Cinzel', serif; }
+.font-cinzel-deco { font-family: 'Cinzel Decorative', serif; }
+
+/* ===== Gradient Effects ===== */
+.gradient-main {
+    background: linear-gradient(135deg, 
+        var(--pure-white) 0%, 
+        var(--off-white) 20%, 
+        var(--gold-light) 40%, 
+        var(--gold) 55%, 
+        var(--deep-black) 70%, 
+        var(--pure-black) 80%, 
+        var(--red-dark) 90%, 
+        var(--red-sinner) 100%
+    );
+}
+
+.gradient-gold-white {
+    background: linear-gradient(135deg, var(--pure-white) 0%, var(--gold-light) 50%, var(--gold) 100%);
+}
+
+.gradient-black-red {
+    background: linear-gradient(135deg, var(--pure-black) 0%, var(--gray-dark) 50%, var(--red-dark) 100%);
+}
+
+/* ===== Text Gradient ===== */
+.text-gradient-gold {
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-gradient-red {
+    background: linear-gradient(135deg, var(--red-sinner), var(--red-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ===== NAVBAR ===== */
+.navbar-sinner {
+    background: rgba(10, 10, 10, 0.97) !important;
+    border-bottom: 1px solid var(--gold-dark);
+    backdrop-filter: blur(20px);
+    padding: 1rem 0;
+    transition: all 0.3s ease;
+}
+
+.navbar-sinner .navbar-brand {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold), var(--gold-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.navbar-sinner .nav-link {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--off-white) !important;
+    padding: 0.5rem 1.2rem !important;
+    transition: color 0.3s ease;
+    position: relative;
+}
+
+.navbar-sinner .nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 1px;
+    background: var(--gold);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbar-sinner .nav-link:hover::after,
+.navbar-sinner .nav-link.active::after {
+    width: 80%;
+}
+
+.navbar-sinner .nav-link:hover,
+.navbar-sinner .nav-link.active {
+    color: var(--gold) !important;
+}
+
+.navbar-sinner .dropdown-menu {
+    background: rgba(10, 10, 10, 0.98);
+    border: 1px solid var(--gold-dark);
+    border-radius: 0;
+    padding: 0.5rem 0;
+    min-width: 200px;
+}
+
+.navbar-sinner .dropdown-item {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--off-white);
+    padding: 0.7rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.navbar-sinner .dropdown-item:hover {
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--gold);
+    padding-left: 2rem;
+}
+
+.navbar-toggler {
+    border-color: var(--gold-dark) !important;
+}
+
+.navbar-toggler-icon {
+    filter: invert(1);
+}
+
+/* ===== FOOTER ===== */
+.footer-sinner {
+    background: var(--pure-black);
+    border-top: 1px solid var(--gold-dark);
+    color: var(--off-white);
+    padding: 4rem 0 1.5rem;
+}
+
+.footer-brand {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.footer-tagline {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 4px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+}
+
+.footer-heading {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--gold-dark);
+}
+
+.footer-link {
+    font-size: 0.8rem;
+    color: rgba(245, 240, 232, 0.6);
+    text-decoration: none;
+    display: block;
+    padding: 0.3rem 0;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+}
+
+.footer-link:hover {
+    color: var(--gold);
+    padding-left: 0.5rem;
+}
+
+.footer-divider {
+    border-color: var(--gold-dark);
+    opacity: 0.3;
+}
+
+.footer-bottom {
+    font-size: 0.7rem;
+    color: rgba(245, 240, 232, 0.4);
+    letter-spacing: 1px;
+}
+
+.footer-creators {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--gold-dark);
+}
+
+.social-icon {
+    width: 36px;
+    height: 36px;
+    border: 1px solid var(--gold-dark);
+    border-radius: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    margin: 0 0.3rem;
+}
+
+.social-icon:hover {
+    background: var(--gold);
+    color: var(--pure-black);
+    border-color: var(--gold);
+}
+
+/* ===== HERO / INDEX ===== */
+.hero-section {
+    min-height: 100vh;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(180deg, 
+        var(--pure-black) 0%, 
+        var(--deep-black) 30%, 
+        rgba(201, 168, 76, 0.05) 50%,
+        var(--deep-black) 70%, 
+        var(--pure-black) 100%
+    );
+}
+
+.hero-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(3rem, 10vw, 8rem);
+    font-weight: 900;
+    letter-spacing: 8px;
+    line-height: 1;
+    background: linear-gradient(135deg, var(--pure-white) 0%, var(--gold-light) 40%, var(--gold) 60%, var(--gold-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.hero-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(0.6rem, 1.5vw, 0.85rem);
+    letter-spacing: 8px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+}
+
+.hero-description {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1rem;
+    color: rgba(245, 240, 232, 0.7);
+    max-width: 500px;
+    line-height: 1.8;
+    letter-spacing: 1px;
+}
+
+.btn-sinner-gold {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--gold);
+    color: var(--gold);
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-sinner-gold:hover {
+    background: var(--gold);
+    color: var(--pure-black);
+    box-shadow: 0 0 30px rgba(201, 168, 76, 0.4);
+}
+
+.btn-sinner-red {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 3px;
+    padding: 0.9rem 2.5rem;
+    background: transparent;
+    border: 1px solid var(--red-sinner);
+    color: var(--red-sinner);
+    text-transform: uppercase;
+    transition: all 0.4s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.btn-sinner-red:hover {
+    background: var(--red-sinner);
+    color: var(--pure-white);
+    box-shadow: 0 0 30px rgba(196, 30, 58, 0.4);
+}
+
+/* ===== CAROUSEL ===== */
+.carousel-sinner {
+    position: relative;
+}
+
+.carousel-sinner .carousel-item {
+    height: 85vh;
+    min-height: 500px;
+    overflow: hidden;
+}
+
+.carousel-sinner .carousel-item img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    filter: brightness(0.6);
+    transition: transform 8s ease;
+}
+
+.carousel-sinner .carousel-item.active img {
+    transform: scale(1.05);
+}
+
+.carousel-caption-sinner {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem;
+    background: linear-gradient(0deg, rgba(0,0,0,0.9) 0%, transparent 100%);
+}
+
+.carousel-caption-sinner h2 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.5rem, 4vw, 3.5rem);
+    letter-spacing: 4px;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.carousel-caption-sinner p {
+    font-family: 'Cinzel', serif;
+    font-size: 0.75rem;
+    letter-spacing: 4px;
+    color: rgba(245, 240, 232, 0.7);
+    text-transform: uppercase;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: none !important;
+    background-image: none !important;
+    width: 50px;
+    height: 50px;
+    border: 1px solid var(--gold);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gold);
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+}
+
+.carousel-control-prev-icon::before {
+    content: '‹';
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.carousel-control-next-icon::before {
+    content: '›';
+    font-size: 2rem;
+    color: var(--gold);
+    line-height: 1;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 30px;
+    height: 2px;
+    background-color: var(--gold-dark);
+    opacity: 1;
+    margin: 0 4px;
+    border: none;
+}
+
+.carousel-indicators .active {
+    background-color: var(--gold) !important;
+    width: 50px;
+}
+
+/* ===== CATALOG CARDS with HOVER ===== */
+.product-card {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    background: var(--gray-dark);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    transition: border-color 0.3s ease;
+}
+
+.product-card:hover {
+    border-color: var(--gold);
+}
+
+.product-card img {
+    width: 100%;
+    height: 380px;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+    display: block;
+}
+
+.product-card:hover img {
+    transform: scale(1.12);
+}
+
+.product-card-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.75);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.product-card:hover .product-card-overlay {
+    opacity: 1;
+}
+
+.product-price {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold-light), var(--gold));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.1s;
+}
+
+.product-card:hover .product-price {
+    transform: translateY(0);
+}
+
+.product-name {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 3px;
+    color: var(--off-white);
+    text-transform: uppercase;
+    transform: translateY(20px);
+    transition: transform 0.4s ease 0.15s;
+}
+
+.product-card:hover .product-name {
+    transform: translateY(0);
+}
+
+.product-badge {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: var(--gold);
+    color: var(--pure-black);
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    padding: 0.3rem 0.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.product-info {
+    padding: 1rem;
+    background: var(--gray-dark);
+}
+
+.product-info h5 {
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    color: var(--off-white);
+    margin-bottom: 0.3rem;
+}
+
+.product-info .price {
+    font-family: 'Cinzel', serif;
+    color: var(--gold);
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+/* ===== STREETWEAR SPECIFIC ===== */
+.streetwear-page {
+    background: var(--pure-black);
+}
+
+.streetwear-hero {
+    background: linear-gradient(135deg, var(--pure-black) 0%, #1a0000 50%, var(--red-dark) 100%);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.streetwear-hero::before {
+    content: 'SINNER';
+    position: absolute;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 20vw;
+    font-weight: 900;
+    color: rgba(196, 30, 58, 0.05);
+    letter-spacing: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.streetwear-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--red-sinner), var(--red-dark));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.streetwear-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    color: rgba(196, 30, 58, 0.7);
+    text-transform: uppercase;
+}
+
+.streetwear-section {
+    background: linear-gradient(180deg, var(--pure-black) 0%, #0d0000 50%, var(--pure-black) 100%);
+}
+
+.streetwear-card img {
+    filter: contrast(1.1) saturate(0.9);
+}
+
+.streetwear-card .product-badge {
+    background: var(--red-sinner);
+    color: var(--pure-white);
+}
+
+.streetwear-card .product-price {
+    background: linear-gradient(135deg, #ff4444, var(--red-sinner));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.streetwear-card:hover {
+    border-color: var(--red-sinner) !important;
+}
+
+/* ===== OLD MONEY SPECIFIC ===== */
+.oldmoney-page {
+    background: var(--off-white);
+    color: var(--deep-black);
+}
+
+.oldmoney-hero {
+    background: linear-gradient(135deg, var(--pure-white) 0%, var(--off-white) 40%, var(--gold-light) 70%, var(--gold) 100%);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.oldmoney-hero::before {
+    content: 'SINNER';
+    position: absolute;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 20vw;
+    font-weight: 900;
+    color: rgba(201, 168, 76, 0.1);
+    letter-spacing: 10px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+}
+
+.oldmoney-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(2rem, 6vw, 5rem);
+    font-weight: 900;
+    letter-spacing: 6px;
+    background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+}
+
+.oldmoney-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 5px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+}
+
+.oldmoney-section {
+    background: linear-gradient(180deg, var(--pure-white) 0%, var(--off-white) 50%, var(--pure-white) 100%);
+}
+
+.oldmoney-card {
+    background: var(--pure-white) !important;
+    border: 1px solid rgba(201, 168, 76, 0.3) !important;
+}
+
+.oldmoney-card .product-info {
+    background: var(--pure-white);
+}
+
+.oldmoney-card .product-info h5 {
+    color: var(--deep-black);
+}
+
+.oldmoney-card .product-badge {
+    background: var(--gold);
+    color: var(--pure-white);
+}
+
+.oldmoney-card:hover {
+    border-color: var(--gold) !important;
+    box-shadow: 0 10px 40px rgba(201, 168, 76, 0.2);
+}
+
+.oldmoney-card .product-card-overlay {
+    background: rgba(255, 255, 255, 0.85);
+}
+
+.oldmoney-card .product-name {
+    color: var(--deep-black);
+}
+
+/* ===== NOSOTROS / ABOUT ===== */
+.about-hero {
+    background: linear-gradient(135deg, var(--pure-black) 0%, var(--deep-black) 50%, rgba(201, 168, 76, 0.1) 100%);
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-section {
+    background: linear-gradient(180deg, var(--deep-black) 0%, var(--pure-black) 100%);
+}
+
+.team-card {
+    background: var(--gray-dark);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.team-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(201, 168, 76, 0.1);
+}
+
+.team-avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 0;
+    border: 2px solid var(--gold);
+    object-fit: cover;
+    margin: 0 auto 1.5rem;
+}
+
+.team-name {
+    font-family: 'Cinzel', serif;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+}
+
+.team-role {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.75rem;
+    letter-spacing: 2px;
+    color: rgba(245, 240, 232, 0.5);
+    text-transform: uppercase;
+}
+
+.video-container {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--gold-dark);
+}
+
+.video-container::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(135deg, var(--gold), transparent, var(--gold));
+    z-index: -1;
+    opacity: 0.3;
+}
+
+/* ===== SOPORTE / SUPPORT ===== */
+.support-hero {
+    background: linear-gradient(135deg, var(--deep-black) 0%, var(--pure-black) 100%);
+    min-height: 40vh;
+    display: flex;
+    align-items: center;
+}
+
+.support-card {
+    background: var(--gray-dark);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 2.5rem;
+    transition: all 0.4s ease;
+    height: 100%;
+}
+
+.support-card:hover {
+    border-color: var(--gold);
+    transform: translateY(-5px);
+}
+
+.support-icon {
+    font-size: 2.5rem;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.support-title {
+    font-family: 'Cinzel', serif;
+    font-size: 0.85rem;
+    letter-spacing: 3px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+/* ===== FORM STYLES ===== */
+.form-control-sinner {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    color: var(--off-white);
+    border-radius: 0;
+    padding: 0.8rem 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.form-control-sinner:focus {
+    background: rgba(255,255,255,0.05);
+    border-color: var(--gold);
+    color: var(--off-white);
+    box-shadow: 0 0 15px rgba(201, 168, 76, 0.1);
+    outline: none;
+}
+
+.form-control-sinner::placeholder {
+    color: rgba(245, 240, 232, 0.3);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}
+
+.form-label-sinner {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 3px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+/* ===== SECTION TITLES ===== */
+.section-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+}
+
+.section-line {
+    width: 80px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 1rem auto;
+}
+
+.section-subtitle {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 5px;
+    color: var(--gold-dark);
+    text-transform: uppercase;
+}
+
+/* ===== DECORATIVE ELEMENTS ===== */
+.deco-line-gold {
+    width: 60px;
+    height: 1px;
+    background: var(--gold);
+    display: inline-block;
+    vertical-align: middle;
+    margin: 0 1rem;
+}
+
+.divider-gold {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold-dark), transparent);
+    margin: 3rem 0;
+}
+
+.feature-box {
+    background: rgba(201, 168, 76, 0.05);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.feature-box:hover {
+    background: rgba(201, 168, 76, 0.08);
+    border-color: var(--gold);
+}
+
+.feature-icon {
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 1rem;
+}
+
+.feature-text {
+    font-family: 'Cinzel', serif;
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    color: var(--off-white);
+    text-transform: uppercase;
+}
+
+/* ===== FAQ ACCORDION ===== */
+.accordion-sinner .accordion-button {
+    background: var(--gray-dark);
+    color: var(--off-white);
+    font-family: 'Cinzel', serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    border: 1px solid rgba(201, 168, 76, 0.2);
+    border-radius: 0 !important;
+}
+
+.accordion-sinner .accordion-button:not(.collapsed) {
+    background: rgba(201, 168, 76, 0.1);
+    color: var(--gold);
+    box-shadow: none;
+}
+
+.accordion-sinner .accordion-button::after {
+    filter: invert(1) sepia(1) hue-rotate(0deg) saturate(3) brightness(1);
+}
+
+.accordion-sinner .accordion-body {
+    background: var(--gray-mid);
+    border: 1px solid rgba(201, 168, 76, 0.1);
+    border-top: none;
+    color: rgba(245, 240, 232, 0.7);
+    font-size: 0.85rem;
+    line-height: 1.8;
+}
+
+/* ===== BADGE / TAG ===== */
+.tag-sinner {
+    font-family: 'Cinzel', serif;
+    font-size: 0.6rem;
+    letter-spacing: 2px;
+    padding: 0.3rem 0.8rem;
+    background: rgba(201, 168, 76, 0.1);
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: var(--gold);
+    text-transform: uppercase;
+    display: inline-block;
+}
+
+/* ===== CATALOG PAGE ===== */
+.catalog-hero {
+    background: linear-gradient(160deg, var(--pure-black) 0%, var(--deep-black) 40%, rgba(201, 168, 76, 0.08) 70%, var(--deep-black) 100%);
+    padding: 6rem 0 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.catalog-filter {
+    background: var(--gray-dark);
+    border: 1px solid rgba(201, 168, 76, 0.15);
+    padding: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.filter-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 0.65rem;
+    letter-spacing: 2px;
+    padding: 0.5rem 1.5rem;
+    background: transparent;
+    border: 1px solid rgba(201, 168, 76, 0.3);
+    color: var(--off-white);
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 0.2rem;
+}
+
+.filter-btn:hover, .filter-btn.active {
+    background: var(--gold);
+    border-color: var(--gold);
+    color: var(--pure-black);
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar {
+    width: 4px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--pure-black);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--gold-dark);
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--gold);
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes shimmer {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+}
+
+.animate-fade-in-up {
+    animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-delay-1 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-2 { animation-delay: 0.4s; opacity: 0; }
+.animate-delay-3 { animation-delay: 0.6s; opacity: 0; }
+.animate-delay-4 { animation-delay: 0.8s; opacity: 0; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .navbar-sinner .navbar-brand { font-size: 1.3rem; }
+    .hero-title { font-size: 3rem; }
+    .carousel-sinner .carousel-item { height: 60vh; }
+    .product-card img { height: 280px; }
+    .footer-sinner { padding: 3rem 0 1.5rem; }
 }
