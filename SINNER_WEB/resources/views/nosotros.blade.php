@@ -88,8 +88,8 @@
 
                 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                     <iframe
-                        src="https://www.youtube.com/embed/8xoUc0Wm3W0?si=JxkQi3UjHDjqJBOk"
-                        title="SINNER Fashion — Old Money & Streetwear"
+                        src="https://www.youtube.com/watch?v=VmfQmaP-UQY"
+                        title="SINNER Fashion — Old Money"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen
@@ -105,7 +105,7 @@
             <div class="col-lg-10">
                 <div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
                     <iframe
-                        src="https://www.youtube.com/embed/l3L4SjQShSQ?si=xyzABCDEFGHIJKLM"
+                        src="https://www.youtube.com/watch?v=-YzrXpqupps"
                         title="Streetwear Culture"
                         frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
