@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row text-center">
             <div class="col-4">
-                <div style="font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; color: var(--red-sinner);">48+</div>
+                <div style="font-family: 'Cinzel Decorative', serif; font-size: 1.8rem; color: var(--red-sinner);">16+</div>
                 <div style="font-family: 'Cinzel', serif; font-size: 0.6rem; letter-spacing: 2px; color: rgba(245,240,232,0.4);">PIEZAS</div>
             </div>
             <div class="col-4" style="border-left: 1px solid rgba(196,30,58,0.2); border-right: 1px solid rgba(196,30,58,0.2);">
@@ -69,14 +69,14 @@
 
         @php
             $streetItems = [
-                ['img' => 'https://images.unsplash.com/photo-1512327428394-b99f62e16f1f?w=600', 'name' => 'Rebel Hoodie', 'price' => '$179.000', 'tag' => 'Drop #1'],
-                ['img' => 'https://images.unsplash.com/photo-1523398002811-999ca8dec234?w=600', 'name' => 'Street Cap', 'price' => '$89.000', 'tag' => 'Nuevo'],
-                ['img' => 'https://images.unsplash.com/photo-1571945153237-4929e783af4a?w=600', 'name' => 'Cargo Pants', 'price' => '$239.000', 'tag' => 'Drop #2'],
-                ['img' => 'https://images.unsplash.com/photo-1509631179647-0177331693ae?w=600', 'name' => 'Bomber Jacket', 'price' => '$389.000', 'tag' => 'Limitado'],
-                ['img' => 'https://images.unsplash.com/photo-1605348532760-6753d2c43329?w=600', 'name' => 'Oversized Tee', 'price' => '$129.000', 'tag' => 'Drop #1'],
-                ['img' => 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600', 'name' => 'Urban Sneakers', 'price' => '$349.000', 'tag' => 'Drop #3'],
-                ['img' => 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?w=600', 'name' => 'Street Shirt', 'price' => '$149.000', 'tag' => 'Nuevo'],
-                ['img' => 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600', 'name' => 'Jogger Pro', 'price' => '$169.000', 'tag' => 'Drop #2'],
+                ['img' => 'https://i.pinimg.com/736x/71/f5/fb/71f5fb2e33d993255f300eddee64d4c6.jpg', 'name' => 'Rebel Hoodie', 'price' => '$179.000', 'tag' => 'Drop #1'],
+                ['img' => 'https://i.pinimg.com/736x/da/88/d0/da88d0f8a194e38e289400f58e0cea53.jpg', 'name' => 'Street Cap', 'price' => '$89.000', 'tag' => 'Nuevo'],
+                ['img' => 'https://i.pinimg.com/1200x/ac/85/14/ac8514c5711a34ada8b914feb36bef61.jpg', 'name' => 'Cargo Pants', 'price' => '$239.000', 'tag' => 'Drop #2'],
+                ['img' => 'https://i.pinimg.com/736x/64/06/a3/6406a33fcec296e7cdcdd9fa5cadd4da.jpg', 'name' => 'Bomber Jacket', 'price' => '$389.000', 'tag' => 'Limitado'],
+                ['img' => 'https://i.pinimg.com/736x/f5/b8/b5/f5b8b596528f5e40602cfc1218b72fb0.jpg', 'name' => 'Oversized Tee', 'price' => '$129.000', 'tag' => 'Drop #1'],
+                ['img' => 'https://i.pinimg.com/736x/6a/23/98/6a2398df9a2c96baff240ee079d14f83.jpg', 'name' => 'Urban Sneakers', 'price' => '$349.000', 'tag' => 'Drop #3'],
+                ['img' => 'https://i.pinimg.com/736x/63/70/ed/6370ede8e3cf389bece3ef5eea1d3ff7.jpg', 'name' => 'Street Shirt', 'price' => '$149.000', 'tag' => 'Nuevo'],
+                ['img' => 'https://i.pinimg.com/1200x/ee/94/96/ee949697e4fefb88b75c7363fdd93c16.jpg', 'name' => 'Jogger Pro', 'price' => '$169.000', 'tag' => 'Drop #2'],
             ];
         @endphp
 
