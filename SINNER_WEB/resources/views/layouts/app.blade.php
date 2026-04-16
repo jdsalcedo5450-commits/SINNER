@@ -84,7 +84,13 @@
                             Soporte
                         </a>
                     </li>
-                    
+
+                    <li class="nav-item">
+                        <a class="nav-link {{ request()->routeIs('mensajes.index') ? 'active' : '' }}" href="{{ route('mensajes.index') }}">
+                            Mensajes    
+                        </a>
+                    </li>
+
                 </ul>
             </div>
         </div>
@@ -131,9 +137,6 @@
                     <div class="footer-heading">Información</div>
                     <a href="{{ route('nosotros') }}" class="footer-link">Nosotros</a>
                     <a href="{{ route('soporte') }}" class="footer-link">Soporte</a>
-                    <a href="#" class="footer-link">Política de Privacidad</a>
-                    <a href="#" class="footer-link">Términos y Condiciones</a>
-                    <a href="#" class="footer-link">Devoluciones</a>
                 </div>
 
                 {{-- Contacto --}}
@@ -152,14 +155,6 @@
                         <span class="footer-link p-0">Colombia</span>
                     </div>
 
-                    {{-- Newsletter --}}
-                    <div class="footer-heading">Newsletter</div>
-                    <div class="input-group">
-                        <input type="email" class="form-control form-control-sinner" placeholder="Tu email" style="border-right: none;">
-                        <button class="btn-sinner-gold" type="button" style="padding: 0.55rem 1rem; font-size: 0.65rem; letter-spacing: 1px;">
-                            <i class="bi bi-arrow-right"></i>
-                        </button>
-                    </div>
                 </div>
 
             </div>
