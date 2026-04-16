@@ -1,33 +1,36 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PaginaControlador;
+use App\Http\Controllers\PqrsControlador;
+use App\Http\Controllers\MensajeControlador;
 
-// Página de Inicio
-Route::get('/', function () {
-    return view('index');
-})->name('index');
+Route::get('/',           [PaginaControlador::class, 'index'])->name('index');
+Route::get('/catalogo',   [PaginaControlador::class, 'catalogo'])->name('catalogo');
+Route::get('/streetwear', [PaginaControlador::class, 'streetwear'])->name('streetwear');
+Route::get('/old-money',  [PaginaControlador::class, 'oldmoney'])->name('oldmoney');
+Route::get('/nosotros',   [PaginaControlador::class, 'nosotros'])->name('nosotros');
 
-// Catálogo General
-Route::get('/catalogo', function () {
-    return view('catalogo');
-})->name('catalogo');
+Route::get('/soporte', [PqrsControlador::class, 'soporte'])->name('soporte');
 
-// Streetwear
-Route::get('/catalogo/streetwear', function () {
-    return view('streetwear');
-})->name('streetwear');
+Route::post('/pqrs',   [PqrsControlador::class, 'store'])->name('pqrs.store');
 
-// Old Money
-Route::get('/catalogo/old-money', function () {
-    return view('oldmoney');
-})->name('oldmoney');
+Route::get('/pqrs/{pqrs}/edit',    [PqrsControlador::class, 'edit'])->name('pqrs.edit');
+Route::put('/pqrs/{pqrs}',         [PqrsControlador::class, 'update'])->name('pqrs.update');
+Route::delete('/pqrs/{pqrs}',      [PqrsControlador::class, 'destroy'])->name('pqrs.destroy');
+Route::put('/pqrs/{pqrs}/leido',   [PqrsControlador::class, 'marcarLeido'])->name('pqrs.leido');
 
-// Nosotros
-Route::get('/nosotros', function () {
-    return view('nosotros');
-})->name('nosotros');
+Route::prefix('mensajes')->name('mensajes.')->group(function () {
 
-// Soporte
-Route::get('/soporte', function () {
-    return view('soporte');
-})->name('soporte');
+    Route::get('/',[MensajeControlador::class, 'index'])->name('index');
+
+    Route::get('/create',[MensajeControlador::class, 'create'])->name('create');
+
+    Route::post('/',[MensajeControlador::class, 'store'])->name('store');
+
+    Route::put('/{pqrs}',[MensajeControlador::class, 'update'])->name('update');
+
+    Route::put('/{pqrs}/estado',[MensajeControlador::class, 'cambiarEstado'])->name('estado');
+
+    Route::delete('/{pqrs}',[MensajeControlador::class, 'destroy'])->name('destroy');
+});
