@@ -84,13 +84,7 @@
                             Soporte
                         </a>
                     </li>
-
-                    <li class="nav-item ms-lg-3">
-                        <a href="{{ route('catalogo') }}" class="btn-sinner-gold">
-                            Comprar
-                        </a>
-                    </li>
-
+                    
                 </ul>
             </div>
         </div>
@@ -183,8 +177,6 @@
                         <span style="color: rgba(245,240,232,0.3); font-size: 0.62rem; letter-spacing: 1px;">DISEÑADO POR</span>
                         &nbsp;
                         <span style="color: var(--gold);">Daniel Salcedo</span>
-                        <span style="color: var(--gold-dark); margin: 0 0.5rem;">&amp;</span>
-                        <span style="color: var(--gold);">Andres Tulcan</span>
                     </div>
                 </div>
             </div>

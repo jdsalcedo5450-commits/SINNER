@@ -145,25 +145,6 @@
                     </div>
                 </div>
             </div>
-
-            <div class="col-md-5 col-lg-4">
-                <div class="team-card">
-                    <div class="team-avatar d-flex align-items-center justify-content-center mx-auto mb-3" style="background: linear-gradient(135deg, var(--gold-dark), var(--gold)); font-family: 'Cinzel Decorative', serif; font-size: 2rem; color: var(--pure-black);">
-                        AT
-                    </div>
-                    <div class="team-name mb-1">Andres Tulcan</div>
-                    <div class="team-role mb-3">Co-Fundador & Director de Marca</div>
-                    <hr style="border-color: rgba(201,168,76,0.2);">
-                    <p style="font-size: 0.8rem; color: rgba(245,240,232,0.55); line-height: 1.8;">
-                        Estratega de marca con profundo conocimiento de la moda streetwear y
-                        la cultura del lujo contemporáneo. Motor de expansión de SINNER.
-                    </p>
-                    <div class="mt-3">
-                        <a href="#" class="social-icon" style="width: 30px; height: 30px; font-size: 0.8rem;"><i class="bi bi-instagram"></i></a>
-                        <a href="#" class="social-icon" style="width: 30px; height: 30px; font-size: 0.8rem;"><i class="bi bi-linkedin"></i></a>
-                    </div>
-                </div>
-            </div>
         </div>
 
         {{-- VALUES --}}
