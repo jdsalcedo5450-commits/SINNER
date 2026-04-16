@@ -67,38 +67,131 @@
         {{-- Contact Form + FAQ --}}
         <div class="row g-5">
 
-            {{-- Form --}}
+            {{-- ===== FORMULARIO PQRS ===== --}}
             <div class="col-lg-6">
                 <div style="background: var(--gray-dark); border: 1px solid rgba(201,168,76,0.15); padding: 2.5rem;">
-                    <h3 class="section-title text-gradient-gold mb-1" style="font-size: 1.2rem;">Escríbenos</h3>
+
+                    <h3 class="section-title text-gradient-gold mb-1" style="font-size: 1.2rem;">Envía tu PQRS</h3>
                     <p class="section-subtitle mb-4">Te respondemos a la brevedad</p>
 
-                    <div class="mb-3">
-                        <label class="form-label-sinner">Nombre completo</label>
-                        <input type="text" class="form-control form-control-sinner" placeholder="Tu nombre">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label-sinner">Email</label>
-                        <input type="email" class="form-control form-control-sinner" placeholder="tu@email.com">
-                    </div>
-                    <div class="mb-3">
-                        <label class="form-label-sinner">Asunto</label>
-                        <select class="form-control form-control-sinner">
-                            <option value="">Selecciona un asunto</option>
-                            <option>Pedido / Seguimiento</option>
-                            <option>Devolución / Cambio</option>
-                            <option>Información de producto</option>
-                            <option>Colaboración</option>
-                            <option>Otro</option>
-                        </select>
-                    </div>
-                    <div class="mb-4">
-                        <label class="form-label-sinner">Mensaje</label>
-                        <textarea class="form-control form-control-sinner" rows="5" placeholder="Cuéntanos en qué podemos ayudarte..."></textarea>
-                    </div>
-                    <button type="button" class="btn-sinner-gold w-100" style="text-align: center; cursor: pointer; border: none;">
-                        Enviar Mensaje <i class="bi bi-arrow-right ms-2"></i>
-                    </button>
+                    {{-- Alerta de éxito --}}
+                    @if(session('success'))
+                        <div class="alert-sinner-success mb-4">
+                            <i class="bi bi-check-circle me-2"></i>{{ session('success') }}
+                        </div>
+                    @endif
+
+                    {{-- Errores de validación --}}
+                    @if($errors->any())
+                        <div class="alert-sinner-error mb-4">
+                            <i class="bi bi-exclamation-triangle me-2"></i>
+                            <strong>Por favor corrige los siguientes errores:</strong>
+                            <ul style="margin: 0.5rem 0 0 1rem; font-size: 0.8rem;">
+                                @foreach($errors->all() as $error)
+                                    <li>{{ $error }}</li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    @endif
+
+                    <form action="{{ route('pqrs.store') }}" method="POST" novalidate>
+                        @csrf
+
+                        {{-- Fila: Nombres + Apellidos --}}
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label-sinner">Nombres <span style="color: var(--red-sinner);">*</span></label>
+                                <input
+                                    type="text"
+                                    name="nombres"
+                                    class="form-control form-control-sinner @error('nombres') is-invalid-sinner @enderror"
+                                    placeholder="Tus nombres"
+                                    value="{{ old('nombres') }}"
+                                    required>
+                                @error('nombres')
+                                    <div class="field-error">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label-sinner">Apellidos <span style="color: var(--red-sinner);">*</span></label>
+                                <input
+                                    type="text"
+                                    name="apellidos"
+                                    class="form-control form-control-sinner @error('apellidos') is-invalid-sinner @enderror"
+                                    placeholder="Tus apellidos"
+                                    value="{{ old('apellidos') }}"
+                                    required>
+                                @error('apellidos')
+                                    <div class="field-error">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Email --}}
+                        <div class="mb-3">
+                            <label class="form-label-sinner">Email <span style="color: var(--red-sinner);">*</span></label>
+                            <input
+                                type="email"
+                                name="email"
+                                class="form-control form-control-sinner @error('email') is-invalid-sinner @enderror"
+                                placeholder="tu@email.com"
+                                value="{{ old('email') }}"
+                                required>
+                            @error('email')
+                                <div class="field-error">{{ $message }}</div>
+                            @enderror
+                        </div>
+
+                        {{-- Fila: Rol + Tipo PQRS --}}
+                        <div class="row g-3 mb-3">
+                            <div class="col-6">
+                                <label class="form-label-sinner">Rol <span style="color: var(--red-sinner);">*</span></label>
+                                <select name="rol" class="form-control form-control-sinner @error('rol') is-invalid-sinner @enderror" required>
+                                    <option value="" disabled {{ old('rol') ? '' : 'selected' }}>Selecciona</option>
+                                    <option value="cliente"  {{ old('rol') === 'cliente'  ? 'selected' : '' }}>Cliente</option>
+                                    <option value="empleado" {{ old('rol') === 'empleado' ? 'selected' : '' }}>Empleado</option>
+                                    <option value="socio"    {{ old('rol') === 'socio'    ? 'selected' : '' }}>Socio</option>
+                                </select>
+                                @error('rol')
+                                    <div class="field-error">{{ $message }}</div>
+                                @enderror
+                            </div>
+                            <div class="col-6">
+                                <label class="form-label-sinner">Tipo de PQRS <span style="color: var(--red-sinner);">*</span></label>
+                                <select name="tipo" class="form-control form-control-sinner @error('tipo') is-invalid-sinner @enderror" required>
+                                    <option value="" disabled {{ old('tipo') ? '' : 'selected' }}>Selecciona</option>
+                                    <option value="queja"         {{ old('tipo') === 'queja'         ? 'selected' : '' }}>Queja</option>
+                                    <option value="recomendacion" {{ old('tipo') === 'recomendacion' ? 'selected' : '' }}>Recomendación</option>
+                                    <option value="felicitacion"  {{ old('tipo') === 'felicitacion'  ? 'selected' : '' }}>Felicitación</option>
+                                </select>
+                                @error('tipo')
+                                    <div class="field-error">{{ $message }}</div>
+                                @enderror
+                            </div>
+                        </div>
+
+                        {{-- Mensaje --}}
+                        <div class="mb-4">
+                            <label class="form-label-sinner">Mensaje <span style="color: var(--red-sinner);">*</span></label>
+                            <textarea
+                                name="mensaje"
+                                class="form-control form-control-sinner @error('mensaje') is-invalid-sinner @enderror"
+                                rows="5"
+                                placeholder="Describe detalladamente tu queja, recomendación o felicitación..."
+                                required>{{ old('mensaje') }}</textarea>
+                            @error('mensaje')
+                                <div class="field-error">{{ $message }}</div>
+                            @enderror
+                            <div style="text-align: right; font-size: 0.68rem; color: rgba(245,240,232,0.3); margin-top: 0.3rem; font-family: 'Cinzel', serif; letter-spacing: 1px;">
+                                Máx. 2000 caracteres
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-sinner-gold w-100" style="text-align: center; cursor: pointer; border: none;">
+                            Enviar PQRS &nbsp;<i class="bi bi-arrow-right"></i>
+                        </button>
+
+                    </form>
                 </div>
             </div>
 
@@ -212,3 +305,43 @@
 </section>
 
 @endsection
+
+@push('styles')
+<style>
+/* Alertas estilo SINNER */
+.alert-sinner-success {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.4);
+    color: var(--gold-light);
+    padding: 1rem 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+}
+.alert-sinner-error {
+    background: rgba(196,30,58,0.1);
+    border: 1px solid rgba(196,30,58,0.4);
+    color: #ff8fa3;
+    padding: 1rem 1.2rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.82rem;
+    letter-spacing: 0.5px;
+}
+.is-invalid-sinner {
+    border-color: var(--red-sinner) !important;
+    box-shadow: 0 0 10px rgba(196,30,58,0.2) !important;
+}
+.field-error {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.72rem;
+    color: #ff8fa3;
+    margin-top: 0.3rem;
+    letter-spacing: 0.5px;
+}
+/* Selects en dark mode */
+select.form-control-sinner option {
+    background: var(--gray-dark);
+    color: var(--off-white);
+}
+</style>
+@endpush
